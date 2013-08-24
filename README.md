@@ -1,4 +1,0 @@
-blog
-====
-
-Revel powered blogging 
