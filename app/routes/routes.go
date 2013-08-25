@@ -75,3 +75,15 @@ func (_ tTestRunner) List(
 }
 
 
+type tBlog struct {}
+var Blog tBlog
+
+
+func (_ tBlog) Index(
+		) string {
+	args := make(map[string]string)
+	
+	return revel.MainRouter.Reverse("Blog.Index", args).Url
+}
+
+
