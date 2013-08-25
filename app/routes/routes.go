@@ -87,3 +87,15 @@ func (_ tBlog) Index(
 }
 
 
+type tPost struct {}
+var Post tPost
+
+
+func (_ tPost) Index(
+		) string {
+	args := make(map[string]string)
+	
+	return revel.MainRouter.Reverse("Post.Index", args).Url
+}
+
+
