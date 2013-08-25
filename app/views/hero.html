@@ -1,9 +1,11 @@
-<header class="hero-unit" style="background-color:#8e56a8">
+<header class="hero-unit">
   <div class="container">
     <div class="row">
       <div class="hero-text">
-        <h1 style="color:#FFF"><a href="/">Blog</a></h1>
-        <p></p>
+        <h1 class="pull-left"><a href="/">alexefish.com</a></h1>
+        {{ if .authenticated}}
+          <a class="pull-right btn btn-success btn-large" href="/post/new">New Post</a>
+        {{ end }}
       </div>
     </div>
 
