@@ -5,7 +5,10 @@
 module:testrunner
 
 GET     /                                       App.Index
+
 GET     /posts                                  Post.Index
+GET     /post/new                               Post.GetCreate
+POST    /post/new                               Post.PostCreate
 
 # Ignore favicon requests
 GET     /favicon.ico                            404

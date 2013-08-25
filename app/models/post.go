@@ -1,6 +1,7 @@
 package models
 
 import (
+  "github.com/robfig/revel"
   "labix.org/v2/mgo"
   "labix.org/v2/mgo/bson"
   "time"
@@ -21,4 +22,13 @@ func GetPostsByDate(s *mgo.Session, limit int) []*Post {
   query.All(&posts)
 
   return posts
+}
+
+func (post *Post) Save(s *mgo.Session) error {
+  coll := Collection(post, s)
+  _, err := coll.Upsert(bson.M{"_id": post.Id}, post)
+  if err != nil {
+    revel.WARN.Printf("Unable to save post: %v error %v", post, err)
+  }
+  return err
 }
