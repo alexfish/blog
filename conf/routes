@@ -9,6 +9,7 @@ GET     /                                       App.Index
 GET     /posts                                  Post.Index
 GET     /post/new                               Post.GetCreate
 POST    /post/new                               Post.PostCreate
+GET     /post/:id                               Post.Show
 GET     /post/:id/delete                        Post.Delete
 
 # Ignore favicon requests

@@ -22,6 +22,11 @@ func (c Post) GetCreate() revel.Result {
   return c.Render(action, post, actionButton)
 }
 
+func (c Post) Show(id bson.ObjectId) revel.Result {
+  post := models.GetPostByObjectId(c.MongoSession, id)
+  return c.Render(post)
+}
+
 func (c Post) PostCreate(post *models.Post) revel.Result {
   post.Id = bson.NewObjectId()
   post.Date = time.Now()

@@ -105,6 +105,15 @@ func (_ tPost) GetCreate(
 	return revel.MainRouter.Reverse("Post.GetCreate", args).Url
 }
 
+func (_ tPost) Show(
+		id interface{},
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "id", id)
+	return revel.MainRouter.Reverse("Post.Show", args).Url
+}
+
 func (_ tPost) PostCreate(
 		post interface{},
 		) string {

@@ -17,13 +17,12 @@
       <div class="controls">
         <textarea id="{{$field.Id}}" name="{{$field.Name}}" rows="20">{{if $field.Flash}}{{$field.Flash}}{{else}}{{$field.Value}}{{end}}</textarea>
         <span class="help-inline error">{{$field.Error}}</span>
-
       </div>
     </div>
   {{end}}
 
   <div class="form-actions">
-    <input type="submit" value="{{.actionButton}}" class="btn btn-primary"/>
+    <input type="submit" value="{{.actionButton}}" class="btn btn-primary btn-large"/>
   </div>
 </form>
 

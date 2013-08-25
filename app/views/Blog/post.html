@@ -1,5 +1,5 @@
 <post>
-<h1>{{.Title}}</h1>
+<h1><a href="/post/{{.Id.Hex}}">{{.Title}}</a></h1>
 <p>{{.Body}}</p>
 <p>{{.Date.Format "2 January, 2006"}}</p>
 <a class="btn btn-danger" href="/post/{{.Id.Hex}}/delete">Delete</a>

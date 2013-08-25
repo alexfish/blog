@@ -137,6 +137,17 @@ func main() {
 				},
 			},
 			&revel.MethodType{
+				Name: "Show",
+				Args: []*revel.MethodArg{ 
+					&revel.MethodArg{Name: "id", Type: reflect.TypeOf((*bson.ObjectId)(nil)) },
+				},
+				RenderArgNames: map[int][]string{ 
+					27: []string{ 
+						"post",
+					},
+				},
+			},
+			&revel.MethodType{
 				Name: "PostCreate",
 				Args: []*revel.MethodArg{ 
 					&revel.MethodArg{Name: "post", Type: reflect.TypeOf((**models.Post)(nil)) },
