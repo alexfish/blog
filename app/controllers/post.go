@@ -32,6 +32,24 @@ func (c Post) Show(id bson.ObjectId) revel.Result {
   return c.Render(post, authenticated)
 }
 
+func (c Post) Update(post *models.Post) revel.Result {
+  if c.UserAuthenticated() {
+    post.Date = time.Now()
+    post.Save(c.MongoSession)
+  }
+  return c.Redirect(App.Index)
+}
+
+func (c Post) GetUpdate(id bson.ObjectId) revel.Result {
+  if c.UserAuthenticated() {
+    post := models.GetPostByObjectId(c.MongoSession, id)
+    action := "/Post/Update"
+    actionButton := "Update"
+    return c.Render(action, post, actionButton)
+  }
+  return c.Redirect(App.Index)
+}
+
 func (c Post) PostCreate(post *models.Post) revel.Result {
   if c.UserAuthenticated() {
     post.Id = bson.NewObjectId()

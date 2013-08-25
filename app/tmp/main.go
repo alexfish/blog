@@ -150,6 +150,27 @@ func main() {
 				},
 			},
 			&revel.MethodType{
+				Name: "Update",
+				Args: []*revel.MethodArg{ 
+					&revel.MethodArg{Name: "post", Type: reflect.TypeOf((**models.Post)(nil)) },
+				},
+				RenderArgNames: map[int][]string{ 
+				},
+			},
+			&revel.MethodType{
+				Name: "GetUpdate",
+				Args: []*revel.MethodArg{ 
+					&revel.MethodArg{Name: "id", Type: reflect.TypeOf((*bson.ObjectId)(nil)) },
+				},
+				RenderArgNames: map[int][]string{ 
+					48: []string{ 
+						"action",
+						"post",
+						"actionButton",
+					},
+				},
+			},
+			&revel.MethodType{
 				Name: "PostCreate",
 				Args: []*revel.MethodArg{ 
 					&revel.MethodArg{Name: "post", Type: reflect.TypeOf((**models.Post)(nil)) },

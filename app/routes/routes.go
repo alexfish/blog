@@ -114,6 +114,24 @@ func (_ tPost) Show(
 	return revel.MainRouter.Reverse("Post.Show", args).Url
 }
 
+func (_ tPost) Update(
+		post interface{},
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "post", post)
+	return revel.MainRouter.Reverse("Post.Update", args).Url
+}
+
+func (_ tPost) GetUpdate(
+		id interface{},
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "id", id)
+	return revel.MainRouter.Reverse("Post.GetUpdate", args).Url
+}
+
 func (_ tPost) PostCreate(
 		post interface{},
 		) string {
