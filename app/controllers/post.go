@@ -16,10 +16,14 @@ func (c Post) Index() revel.Result {
 }
 
 func (c Post) GetCreate() revel.Result {
-  post := models.Post{}
-  action := "/post/new"
-  actionButton := "Create"
-  return c.Render(action, post, actionButton)
+  if c.UserAuthenticated() {
+    post := models.Post{}
+    action := "/post/new"
+    actionButton := "Create"
+    return c.Render(action, post, actionButton)
+  } else {
+    return c.Redirect(App.Index)
+  }
 }
 
 func (c Post) Show(id bson.ObjectId) revel.Result {
@@ -29,16 +33,19 @@ func (c Post) Show(id bson.ObjectId) revel.Result {
 }
 
 func (c Post) PostCreate(post *models.Post) revel.Result {
-  post.Id = bson.NewObjectId()
-  post.Date = time.Now()
-  post.Save(c.MongoSession)
-
+  if c.UserAuthenticated() {
+    post.Id = bson.NewObjectId()
+    post.Date = time.Now()
+    post.Save(c.MongoSession)
+  }
   return c.Redirect(App.Index)
 }
 
 func (c Post) Delete(id bson.ObjectId) revel.Result {
-  post := models.GetPostByObjectId(c.MongoSession, id)
-  post.Delete(c.MongoSession)
+  if c.UserAuthenticated() {
+    post := models.GetPostByObjectId(c.MongoSession, id)
+   post.Delete(c.MongoSession)
+  }
 
   return c.Redirect(App.Index)
 }

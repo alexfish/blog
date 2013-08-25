@@ -130,7 +130,7 @@ func main() {
 				Args: []*revel.MethodArg{ 
 				},
 				RenderArgNames: map[int][]string{ 
-					22: []string{ 
+					23: []string{ 
 						"action",
 						"post",
 						"actionButton",
@@ -143,7 +143,7 @@ func main() {
 					&revel.MethodArg{Name: "id", Type: reflect.TypeOf((*bson.ObjectId)(nil)) },
 				},
 				RenderArgNames: map[int][]string{ 
-					28: []string{ 
+					32: []string{ 
 						"post",
 						"authenticated",
 					},
