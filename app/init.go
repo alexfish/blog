@@ -6,6 +6,7 @@ import  (
 )
 
 func init() {
+	revel.OnAppStart(AppInit)
 	revel.OnAppStart(revmgo.AppInit)
 
 	// Filters is the default set of global filters.
