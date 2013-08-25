@@ -13,3 +13,10 @@ type App struct {
 func (c App) Index() revel.Result {
   return c.Redirect(Blog.Index)
 }
+
+func (c App) UserAuthenticated() bool {
+  if _, ok := c.Session["user"]; ok {
+    return true
+  }
+  return false
+}

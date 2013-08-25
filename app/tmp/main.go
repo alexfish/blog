@@ -107,8 +107,9 @@ func main() {
 				Args: []*revel.MethodArg{ 
 				},
 				RenderArgNames: map[int][]string{ 
-					14: []string{ 
+					15: []string{ 
 						"posts",
+						"authenticated",
 					},
 				},
 			},
@@ -142,8 +143,9 @@ func main() {
 					&revel.MethodArg{Name: "id", Type: reflect.TypeOf((*bson.ObjectId)(nil)) },
 				},
 				RenderArgNames: map[int][]string{ 
-					27: []string{ 
+					28: []string{ 
 						"post",
+						"authenticated",
 					},
 				},
 			},
@@ -159,6 +161,36 @@ func main() {
 				Name: "Delete",
 				Args: []*revel.MethodArg{ 
 					&revel.MethodArg{Name: "id", Type: reflect.TypeOf((*bson.ObjectId)(nil)) },
+				},
+				RenderArgNames: map[int][]string{ 
+				},
+			},
+			
+		})
+	
+	revel.RegisterController((*controllers.User)(nil),
+		[]*revel.MethodType{
+			&revel.MethodType{
+				Name: "GetLogin",
+				Args: []*revel.MethodArg{ 
+				},
+				RenderArgNames: map[int][]string{ 
+					15: []string{ 
+					},
+				},
+			},
+			&revel.MethodType{
+				Name: "PostLogin",
+				Args: []*revel.MethodArg{ 
+					&revel.MethodArg{Name: "Email", Type: reflect.TypeOf((*string)(nil)) },
+					&revel.MethodArg{Name: "Password", Type: reflect.TypeOf((*string)(nil)) },
+				},
+				RenderArgNames: map[int][]string{ 
+				},
+			},
+			&revel.MethodType{
+				Name: "GetLogout",
+				Args: []*revel.MethodArg{ 
 				},
 				RenderArgNames: map[int][]string{ 
 				},

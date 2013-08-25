@@ -12,6 +12,10 @@ POST    /post/new                               Post.PostCreate
 GET     /post/:id                               Post.Show
 GET     /post/:id/delete                        Post.Delete
 
+GET     /login                                  User.GetLogin
+POST    /login                                  User.PostLogin
+GET     /logout                                 User.GetLogout
+
 # Ignore favicon requests
 GET     /favicon.ico                            404
 

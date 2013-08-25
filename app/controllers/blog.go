@@ -10,6 +10,7 @@ type Blog struct {
 }
 
 func (c Blog) Index() revel.Result {
+  authenticated := c.UserAuthenticated()
   posts := models.GetPostsByDate(c.MongoSession, 10)
-  return c.Render(posts)
+  return c.Render(posts, authenticated)
 }

@@ -23,8 +23,9 @@ func (c Post) GetCreate() revel.Result {
 }
 
 func (c Post) Show(id bson.ObjectId) revel.Result {
+  authenticated := c.UserAuthenticated()
   post := models.GetPostByObjectId(c.MongoSession, id)
-  return c.Render(post)
+  return c.Render(post, authenticated)
 }
 
 func (c Post) PostCreate(post *models.Post) revel.Result {

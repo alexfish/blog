@@ -3,10 +3,14 @@
 
 <div class="container">
   <div class="row">
-    <a class="btn btn-success btn-large" href="/post/new">New Post</a>
+    {{ if .authenticated}}
+      <a class="btn btn-success btn-large" href="/post/new">New Post</a>
+    {{ end }}
     <div class="span6">
       {{range $post := .posts}}
-        {{template "Blog/post.html" $post}}
+        <post>
+          {{template "Blog/post.html" $post}}
+        </post>
         <hr />
       {{end}}
     </div>

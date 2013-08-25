@@ -17,8 +17,8 @@ type Post struct {
 
 func GetPostsByDate(s *mgo.Session, limit int) []*Post {
   posts := []*Post{}
-  a := new(Post)
-  query := Collection(a, s).Find(nil).Sort("{'Date': -1}").Limit(limit)
+  post := new(Post)
+  query := Collection(post, s).Find(nil).Sort("{'Date': 0}").Limit(limit)
   query.All(&posts)
 
   return posts

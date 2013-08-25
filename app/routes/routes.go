@@ -133,3 +133,33 @@ func (_ tPost) Delete(
 }
 
 
+type tUser struct {}
+var User tUser
+
+
+func (_ tUser) GetLogin(
+		) string {
+	args := make(map[string]string)
+	
+	return revel.MainRouter.Reverse("User.GetLogin", args).Url
+}
+
+func (_ tUser) PostLogin(
+		Email string,
+		Password string,
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "Email", Email)
+	revel.Unbind(args, "Password", Password)
+	return revel.MainRouter.Reverse("User.PostLogin", args).Url
+}
+
+func (_ tUser) GetLogout(
+		) string {
+	args := make(map[string]string)
+	
+	return revel.MainRouter.Reverse("User.GetLogout", args).Url
+}
+
+
