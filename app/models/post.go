@@ -1,7 +1,6 @@
 package models
 
 import (
-  "github.com/robfig/revel"
   "labix.org/v2/mgo"
   "labix.org/v2/mgo/bson"
   "time"
@@ -12,7 +11,7 @@ type Post struct {
   Id        bson.ObjectId `bson:"_id,omitempty"`
   Title     string        `bson:"Title"`
   Body      string        `bson:"Body"`
-  Date      time.time     `bson:"Date"`
+  Date      time.Time     `bson:"Date"`
 }
 
 func GetPostsByDate(s *mgo.Session, limit int) []*Post {

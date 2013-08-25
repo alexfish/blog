@@ -2,7 +2,7 @@ package controllers
 
 import (
   "github.com/robfig/revel"
-  "github.com/alexfish/blog/models/model"
+  "blog/app/models"
 )
 
 type Blog struct {

@@ -9,13 +9,16 @@
         <p></p>
       </div>
     </div>
+
   </div>
 </header>
 
 <div class="container">
   <div class="row">
     <div class="span6">
-      {{template "flash.html" .}}
+      {{range $post := .posts}}
+        {{template "Blog/post.html" $post}}
+      {{end}}
     </div>
   </div>
 </div>
