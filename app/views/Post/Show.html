@@ -4,7 +4,7 @@
 <div class="container">
   <div class="row">
     <h1>{{.post.Title}}</h1>
-    <p>{{.post.Body}}</p>
+    <p>{{raw .post.Body}}</p>
     <p>{{.post.Date.Format "2 January, 2006"}}
     {{if .authenticated}}
       <p><a class="btn btn-danger" href="/post/{{.post.Id.Hex}}/delete">Delete</a> <a class="btn btn-warning" href="/post/{{.post.Id.Hex}}/update">Update</a></p>

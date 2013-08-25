@@ -100,22 +100,6 @@ func main() {
 			
 		})
 	
-	revel.RegisterController((*controllers.Blog)(nil),
-		[]*revel.MethodType{
-			&revel.MethodType{
-				Name: "Index",
-				Args: []*revel.MethodArg{ 
-				},
-				RenderArgNames: map[int][]string{ 
-					15: []string{ 
-						"posts",
-						"authenticated",
-					},
-				},
-			},
-			
-		})
-	
 	revel.RegisterController((*controllers.Post)(nil),
 		[]*revel.MethodType{
 			&revel.MethodType{
@@ -123,6 +107,10 @@ func main() {
 				Args: []*revel.MethodArg{ 
 				},
 				RenderArgNames: map[int][]string{ 
+					20: []string{ 
+						"posts",
+						"authenticated",
+					},
 				},
 			},
 			&revel.MethodType{
@@ -130,7 +118,7 @@ func main() {
 				Args: []*revel.MethodArg{ 
 				},
 				RenderArgNames: map[int][]string{ 
-					23: []string{ 
+					28: []string{ 
 						"action",
 						"post",
 						"actionButton",
@@ -143,7 +131,7 @@ func main() {
 					&revel.MethodArg{Name: "id", Type: reflect.TypeOf((*bson.ObjectId)(nil)) },
 				},
 				RenderArgNames: map[int][]string{ 
-					32: []string{ 
+					38: []string{ 
 						"post",
 						"authenticated",
 					},
@@ -163,7 +151,7 @@ func main() {
 					&revel.MethodArg{Name: "id", Type: reflect.TypeOf((*bson.ObjectId)(nil)) },
 				},
 				RenderArgNames: map[int][]string{ 
-					48: []string{ 
+					54: []string{ 
 						"action",
 						"post",
 						"actionButton",

@@ -3,6 +3,9 @@ package controllers
 import (
   "github.com/robfig/revel"
   "github.com/jgraham909/revmgo"
+  "github.com/knieriem/markdown"
+  "strings"
+  "bytes"
 )
 
 type App struct {
@@ -11,7 +14,7 @@ type App struct {
 }
 
 func (c App) Index() revel.Result {
-  return c.Redirect(Blog.Index)
+  return c.Redirect(Post.Index)
 }
 
 func (c App) UserAuthenticated() bool {
@@ -19,4 +22,12 @@ func (c App) UserAuthenticated() bool {
     return true
   }
   return false
+}
+
+func (c App) MarkdownHTML(s string) string {
+  parser := markdown.NewParser(nil)
+  src := strings.NewReader(s)
+  dst := new(bytes.Buffer)
+  parser.Markdown(src, markdown.ToHTML(dst))
+  return dst.String()
 }

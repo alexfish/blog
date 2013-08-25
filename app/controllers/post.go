@@ -12,7 +12,12 @@ type Post struct {
 }
 
 func (c Post) Index() revel.Result {
-  return c.Redirect(Blog.Index)
+  authenticated := c.UserAuthenticated()
+  posts := models.GetPostsByDate(c.MongoSession, 10)
+  for i := range posts {
+    posts[i].Body = c.MarkdownHTML(posts[i].Body)
+  }
+  return c.Render(posts, authenticated)
 }
 
 func (c Post) GetCreate() revel.Result {
@@ -29,6 +34,7 @@ func (c Post) GetCreate() revel.Result {
 func (c Post) Show(id bson.ObjectId) revel.Result {
   authenticated := c.UserAuthenticated()
   post := models.GetPostByObjectId(c.MongoSession, id)
+  post.Body = c.MarkdownHTML(post.Body)
   return c.Render(post, authenticated)
 }
 
@@ -62,7 +68,7 @@ func (c Post) PostCreate(post *models.Post) revel.Result {
 func (c Post) Delete(id bson.ObjectId) revel.Result {
   if c.UserAuthenticated() {
     post := models.GetPostByObjectId(c.MongoSession, id)
-   post.Delete(c.MongoSession)
+    post.Delete(c.MongoSession)
   }
 
   return c.Redirect(App.Index)
