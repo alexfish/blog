@@ -29,3 +29,10 @@ func (c Post) PostCreate(post *models.Post) revel.Result {
 
   return c.Redirect(App.Index)
 }
+
+func (c Post) Delete(id bson.ObjectId) revel.Result {
+  post := models.GetPostByObjectId(c.MongoSession, id)
+  post.Delete(c.MongoSession)
+
+  return c.Redirect(App.Index)
+}

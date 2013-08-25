@@ -12,6 +12,7 @@ import (
 	controllers1 "github.com/robfig/revel/modules/static/app/controllers"
 	_ "github.com/robfig/revel/modules/testrunner/app"
 	controllers0 "github.com/robfig/revel/modules/testrunner/app/controllers"
+	bson "labix.org/v2/mgo/bson"
 )
 
 var (
@@ -139,6 +140,14 @@ func main() {
 				Name: "PostCreate",
 				Args: []*revel.MethodArg{ 
 					&revel.MethodArg{Name: "post", Type: reflect.TypeOf((**models.Post)(nil)) },
+				},
+				RenderArgNames: map[int][]string{ 
+				},
+			},
+			&revel.MethodType{
+				Name: "Delete",
+				Args: []*revel.MethodArg{ 
+					&revel.MethodArg{Name: "id", Type: reflect.TypeOf((*bson.ObjectId)(nil)) },
 				},
 				RenderArgNames: map[int][]string{ 
 				},

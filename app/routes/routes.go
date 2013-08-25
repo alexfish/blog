@@ -114,4 +114,13 @@ func (_ tPost) PostCreate(
 	return revel.MainRouter.Reverse("Post.PostCreate", args).Url
 }
 
+func (_ tPost) Delete(
+		id interface{},
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "id", id)
+	return revel.MainRouter.Reverse("Post.Delete", args).Url
+}
+
 
