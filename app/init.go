@@ -1,8 +1,13 @@
 package app
 
-import "github.com/robfig/revel"
+import  (
+	"github.com/robfig/revel"
+	"github.com/jgraham909/revmgo"
+)
 
 func init() {
+	revel.OnAppStart(revmgo.AppInit)
+
 	// Filters is the default set of global filters.
 	revel.Filters = []revel.Filter{
 		revel.PanicFilter,             // Recover from panics and display an error page instead.
