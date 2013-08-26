@@ -114,24 +114,12 @@ func main() {
 				},
 			},
 			&revel.MethodType{
-				Name: "GetCreate",
-				Args: []*revel.MethodArg{ 
-				},
-				RenderArgNames: map[int][]string{ 
-					28: []string{ 
-						"action",
-						"post",
-						"actionButton",
-					},
-				},
-			},
-			&revel.MethodType{
 				Name: "Show",
 				Args: []*revel.MethodArg{ 
 					&revel.MethodArg{Name: "id", Type: reflect.TypeOf((*bson.ObjectId)(nil)) },
 				},
 				RenderArgNames: map[int][]string{ 
-					38: []string{ 
+					27: []string{ 
 						"post",
 						"authenticated",
 					},
@@ -146,12 +134,32 @@ func main() {
 				},
 			},
 			&revel.MethodType{
+				Name: "Delete",
+				Args: []*revel.MethodArg{ 
+					&revel.MethodArg{Name: "id", Type: reflect.TypeOf((*bson.ObjectId)(nil)) },
+				},
+				RenderArgNames: map[int][]string{ 
+				},
+			},
+			&revel.MethodType{
 				Name: "GetUpdate",
 				Args: []*revel.MethodArg{ 
 					&revel.MethodArg{Name: "id", Type: reflect.TypeOf((*bson.ObjectId)(nil)) },
 				},
 				RenderArgNames: map[int][]string{ 
-					54: []string{ 
+					58: []string{ 
+						"action",
+						"post",
+						"actionButton",
+					},
+				},
+			},
+			&revel.MethodType{
+				Name: "GetCreate",
+				Args: []*revel.MethodArg{ 
+				},
+				RenderArgNames: map[int][]string{ 
+					68: []string{ 
 						"action",
 						"post",
 						"actionButton",
@@ -162,14 +170,6 @@ func main() {
 				Name: "PostCreate",
 				Args: []*revel.MethodArg{ 
 					&revel.MethodArg{Name: "post", Type: reflect.TypeOf((**models.Post)(nil)) },
-				},
-				RenderArgNames: map[int][]string{ 
-				},
-			},
-			&revel.MethodType{
-				Name: "Delete",
-				Args: []*revel.MethodArg{ 
-					&revel.MethodArg{Name: "id", Type: reflect.TypeOf((*bson.ObjectId)(nil)) },
 				},
 				RenderArgNames: map[int][]string{ 
 				},
@@ -208,6 +208,10 @@ func main() {
 		})
 	
 	revel.DefaultValidationKeys = map[string]map[int]string{ 
+		"blog/app/models.(*Post).Validate": { 
+			58: "post.Title",
+			62: "post.Body",
+		},
 	}
 	revel.TestSuites = []interface{}{ 
 		(*tests.AppTest)(nil),

@@ -49,3 +49,15 @@ func (post *Post) Delete(s *mgo.Session) error {
   }
   return err
 }
+
+func (post *Post) Validate(v *revel.Validation) {
+  v.Check(post.Title,
+    revel.Required{},
+    revel.MinSize{1},
+    revel.MaxSize{256},
+  )
+  v.Check(post.Body,
+    revel.Required{},
+    revel.MinSize{50},
+  )
+}

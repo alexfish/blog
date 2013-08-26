@@ -86,13 +86,6 @@ func (_ tPost) Index(
 	return revel.MainRouter.Reverse("Post.Index", args).Url
 }
 
-func (_ tPost) GetCreate(
-		) string {
-	args := make(map[string]string)
-	
-	return revel.MainRouter.Reverse("Post.GetCreate", args).Url
-}
-
 func (_ tPost) Show(
 		id interface{},
 		) string {
@@ -111,6 +104,15 @@ func (_ tPost) Update(
 	return revel.MainRouter.Reverse("Post.Update", args).Url
 }
 
+func (_ tPost) Delete(
+		id interface{},
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "id", id)
+	return revel.MainRouter.Reverse("Post.Delete", args).Url
+}
+
 func (_ tPost) GetUpdate(
 		id interface{},
 		) string {
@@ -120,6 +122,13 @@ func (_ tPost) GetUpdate(
 	return revel.MainRouter.Reverse("Post.GetUpdate", args).Url
 }
 
+func (_ tPost) GetCreate(
+		) string {
+	args := make(map[string]string)
+	
+	return revel.MainRouter.Reverse("Post.GetCreate", args).Url
+}
+
 func (_ tPost) PostCreate(
 		post interface{},
 		) string {
@@ -127,15 +136,6 @@ func (_ tPost) PostCreate(
 	
 	revel.Unbind(args, "post", post)
 	return revel.MainRouter.Reverse("Post.PostCreate", args).Url
-}
-
-func (_ tPost) Delete(
-		id interface{},
-		) string {
-	args := make(map[string]string)
-	
-	revel.Unbind(args, "id", id)
-	return revel.MainRouter.Reverse("Post.Delete", args).Url
 }
 
 
