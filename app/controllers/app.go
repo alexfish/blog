@@ -2,7 +2,7 @@ package controllers
 
 import (
   "github.com/robfig/revel"
-  "github.com/jgraham909/revmgo"
+  "github.com/alexefish/revmgo"
   "github.com/knieriem/markdown"
   "strings"
   "bytes"
