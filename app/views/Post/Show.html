@@ -2,13 +2,17 @@
 {{template "header.html" .}}
 {{template "hero.html" .}}
 
+<div class="utility">
+  {{if .authenticated}}
+    <p><a class="btn btn-danger" href="/post/{{.post.Id.Hex}}/delete">Delete</a> <a class="btn btn-warning" href="/post/{{.post.Id.Hex}}/update">Update</a></p>
+  {{end}}
+</div>
 <div class="container show">
   <div class="row">
     <h1>{{.post.Title}}</h1>
-    {{raw .post.Body}}
-    {{if .authenticated}}
-      <p><a class="btn btn-danger" href="/post/{{.post.Id.Hex}}/delete">Delete</a> <a class="btn btn-warning" href="/post/{{.post.Id.Hex}}/update">Update</a></p>
-    {{end}}
+    <post>
+      {{raw .post.Body}}
+    </post>
   </div>
   <hr/>
 </div>

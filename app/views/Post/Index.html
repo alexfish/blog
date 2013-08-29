@@ -2,7 +2,12 @@
 {{template "header.html" .}}
 {{template "hero.html" .}}
 
-<div class="container">
+<div class="utility">
+  {{if .authenticated}}
+    <p><a class="btn btn-primary" href="/post/new">New Post</a></p>
+  {{end}}
+</div>
+<div class="container index">
   <div class="row">
     {{range $post := .posts}}
       <post>

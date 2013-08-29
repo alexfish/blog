@@ -56,9 +56,16 @@ p {
   margin-bottom: 30px;
 }
 
-.show .row
+.utility
 {
-  padding:40px 0;
+  position: fixed;
+  top:0;
+  right:20px;
+}
+
+.show .row, .index .row
+{
+  padding:20px 0;
 }
 
 .show h1
@@ -75,7 +82,12 @@ post h1
 
 post hr
 {
-  margin: 20px 0;
+  margin: 50px 0 30px 0;
+}
+
+post .btn
+{
+  margin-top: 15px;
 }
 
 /* forms */
