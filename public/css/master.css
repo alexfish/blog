@@ -97,6 +97,11 @@ post .btn
   margin:0 auto;
 }
 
+.pagination
+{
+  margin:-20px 0 20px 0;
+}
+
 /* forms */
 #post_Body
 {

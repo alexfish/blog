@@ -7,6 +7,7 @@ module:testrunner
 GET     /                                       App.Index
 
 GET     /posts                                  Post.Index
+GET     /posts/page/:page                       Post.Index
 GET     /post/new                               Post.GetCreate
 POST    /post/new                               Post.PostCreate
 GET     /post/:id                               Post.Show

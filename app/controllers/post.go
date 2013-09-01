@@ -5,6 +5,7 @@ import (
   "github.com/robfig/revel"
   "labix.org/v2/mgo/bson"
   "time"
+  "strconv"
 )
 
 type Post struct {
@@ -13,11 +14,30 @@ type Post struct {
 
 func (c Post) Index() revel.Result {
   authenticated := c.UserAuthenticated()
-  posts := models.GetPostsByDate(c.MongoSession, 10)
+  page := pageWithString(c.Params.Get("page"))
+  nextPage := page + 1
+  prevPage := page - 1
+  posts := models.GetPostsByDate(c.MongoSession, 10, page)
   for i := range posts {
     posts[i].Body = c.MarkdownHTML(posts[i].Body)
   }
-  return c.Render(posts, authenticated)
+  return c.Render(posts, authenticated, nextPage, prevPage)
+}
+
+func pageWithString(p string) int {
+  var page int
+  if len(p) != 0 {
+    pi, err := strconv.Atoi(p);
+    if err != nil {
+      page = 1
+    } else {
+      page = pi
+    }
+  } else {
+    page = 1
+  }
+
+  return page
 }
 
 func (c Post) Show(id bson.ObjectId) revel.Result {

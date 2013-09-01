@@ -15,10 +15,12 @@ type Post struct {
   Date      time.Time     `bson:"Date"`
 }
 
-func GetPostsByDate(s *mgo.Session, limit int) []*Post {
+func GetPostsByDate(s *mgo.Session, limit int, page int) []*Post {
   posts := []*Post{}
   post := new(Post)
-  query := Collection(post, s).Find(nil).Sort("-Date").Limit(limit)
+
+  page = page - 1
+  query := Collection(post, s).Find(nil).Sort("-Date").Limit(limit).Skip(limit * page)
   query.All(&posts)
 
   return posts

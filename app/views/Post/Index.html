@@ -25,6 +25,8 @@
       {{ end }}
     {{end}}
   </div>
+  <p class="pagination pull-left"><a href="/posts/page/{{.prevPage}}">Previous</a></p>
+  <p class="pagination pull-right"><a href="/posts/page/{{.nextPage}}">Next</a></p>
 </div>
 
 {{template "footer.html" .}}
