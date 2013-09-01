@@ -1,1 +1,2 @@
-web: blog
+web: github.com/alexefish/blog
+
