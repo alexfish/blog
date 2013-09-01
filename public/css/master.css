@@ -90,6 +90,13 @@ post .btn
   margin-top: 15px;
 }
 
+#advert
+{
+  padding:20px 0 0 0;
+  width:500px;
+  margin:0 auto;
+}
+
 /* forms */
 #post_Body
 {
