@@ -64,7 +64,6 @@ func (c Post) Update(post *models.Post) revel.Result {
       c.FlashParams()
       return c.Redirect(Post.GetUpdate)
     }
-    post.Date = time.Now()
     post.Save(c.MongoSession)
   }
   return c.Redirect(App.Index)
