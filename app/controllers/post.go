@@ -15,7 +15,7 @@ type Post struct {
 func (c Post) Index() revel.Result {
   authenticated := c.UserAuthenticated()
 
-  perPage := 1
+  perPage := 10
   page := pageWithString(c.Params.Get("page"))
   posts := models.GetPostsByDate(c.MongoSession, perPage, page)
   total := models.TotalPostCount(c.MongoSession)
