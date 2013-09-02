@@ -14,10 +14,19 @@ type Post struct {
 
 func (c Post) Index() revel.Result {
   authenticated := c.UserAuthenticated()
+
+  perPage := 1
   page := pageWithString(c.Params.Get("page"))
+  posts := models.GetPostsByDate(c.MongoSession, perPage, page)
+  total := models.TotalPostCount(c.MongoSession)
+
   nextPage := page + 1
   prevPage := page - 1
-  posts := models.GetPostsByDate(c.MongoSession, 10, page)
+
+  if page * perPage >= total {
+    nextPage = 0
+  }
+
   for i := range posts {
     posts[i].Body = c.MarkdownHTML(posts[i].Body)
   }

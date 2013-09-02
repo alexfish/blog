@@ -26,6 +26,18 @@ func GetPostsByDate(s *mgo.Session, limit int, page int) []*Post {
   return posts
 }
 
+func TotalPostCount(s *mgo.Session) int {
+  post := new(Post)
+  var count int
+  count, err := Collection(post, s).Count()
+
+  if err != nil {
+    revel.WARN.Printf("Unable to count posts: %v error %v", post, err)
+  }
+
+  return count
+}
+
 func GetPostByObjectId(s *mgo.Session, Id bson.ObjectId) *Post {
   post := new(Post)
 

@@ -1,12 +1,18 @@
   <div class="footer">
     <div class="container">
+      {{if .prevPage}}
+        <p class="pagination pull-left"><a class="btn" href="/posts/page/{{.prevPage}}">Previous</a></p>
+      {{end}}
       <p class="pull-left">
-        <a href="https://twitter.com/alexfish" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @alexfish</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+        <small>Powered by <a href="http://golang.org/" target="_blank">Go</a></small>
       </p>
+      {{if .nextPage}}
+        <p class="pagination pull-right"><a class="btn" href="/posts/page/{{.nextPage}}">Next</a></p>
+      {{end}}
       <p class="pull-right">
         <small>&copy; {{year}} Alex Fish</small>
       </p>
+
     </div>
   </div>
     <!-- BuySellAds Ad Code -->
