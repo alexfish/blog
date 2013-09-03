@@ -93,6 +93,16 @@ post .btn
   margin-top: 15px;
 }
 
+post img
+{
+  margin:0 auto;
+}
+
+.text-center.img
+{
+  margin: 40px 0;
+}
+
 #advert
 {
   padding:20px 0 0 0;
