@@ -1,3 +1,0 @@
-Options +FollowSymLinks
-RewriteEngine On
-RewriteRule ^15966868557/(.*)$ http://shielded-sea-1531.herokuapp.com/post/522641eb31fa2a0015000002/$1 [R=301,L]
