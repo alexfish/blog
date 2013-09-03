@@ -58,13 +58,16 @@ func (c Post) Show(id bson.ObjectId) revel.Result {
 
 func (c Post) Update(post *models.Post) revel.Result {
   if c.UserAuthenticated() {
+    model := models.GetPostByObjectId(c.MongoSession, post.Id)
     post.Validate(c.Validation)
     if c.Validation.HasErrors() {
       c.Validation.Keep()
       c.FlashParams()
       return c.Redirect(Post.GetUpdate)
     }
-    post.Save(c.MongoSession)
+    model.Title = post.Title
+    model.Body = post.Body
+    model.Save(c.MongoSession)
   }
   return c.Redirect(App.Index)
 }
