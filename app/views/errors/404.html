@@ -4,7 +4,7 @@
 
 <div class="container error">
   <div class="row">
-		{{if eq .RunMode "dev"}}
+		{{if eq .RunMode ""}}
 		{{template "errors/404-dev.html" .}}
 		{{else}}
 			{{with .Error}}
@@ -12,7 +12,7 @@
 				{{.Title}}
 			</h2>
 			<p>
-				{{.Description}}
+				Sorry, that doesn't exist, <a href="/">maybe it moved?</a>
 			</p>
 			{{end}}
 		{{end}}
