@@ -18,19 +18,24 @@ func (c Post) Index() revel.Result {
   perPage := 10
   page := pageWithString(c.Params.Get("page"))
   posts := models.GetPostsByDate(c.MongoSession, perPage, page)
-  total := models.TotalPostCount(c.MongoSession)
 
-  nextPage := page + 1
-  prevPage := page - 1
+  if len(posts) > 0 {
+    total := models.TotalPostCount(c.MongoSession)
 
-  if page * perPage >= total {
-    nextPage = 0
+    nextPage := page + 1
+    prevPage := page - 1
+
+    if page * perPage >= total {
+      nextPage = 0
+    }
+
+    for i := range posts {
+      posts[i].Body = c.MarkdownHTML(posts[i].Body)
+    }
+    return c.Render(posts, authenticated, nextPage, prevPage)
   }
 
-  for i := range posts {
-    posts[i].Body = c.MarkdownHTML(posts[i].Body)
-  }
-  return c.Render(posts, authenticated, nextPage, prevPage)
+  return c.NotFound("Sorry, nothing to see here.")
 }
 
 func pageWithString(p string) int {
@@ -50,10 +55,14 @@ func pageWithString(p string) int {
 }
 
 func (c Post) Show(id bson.ObjectId) revel.Result {
-  authenticated := c.UserAuthenticated()
-  post := models.GetPostByObjectId(c.MongoSession, id)
-  post.Body = c.MarkdownHTML(post.Body)
-  return c.Render(post, authenticated)
+  if id.Hex() != "" {
+    authenticated := c.UserAuthenticated()
+    post := models.GetPostByObjectId(c.MongoSession, id)
+    post.Body = c.MarkdownHTML(post.Body)
+
+    return c.Render(post, authenticated)
+  }
+  return c.NotFound("Sorry, that post doesn't exist.")
 }
 
 func (c Post) Update(post *models.Post) revel.Result {
