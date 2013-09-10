@@ -7,22 +7,27 @@
     <p><a class="btn btn-danger" href="/post/{{.post.Id.Hex}}/delete">Delete</a> <a class="btn btn-warning" href="/post/{{.post.Id.Hex}}/update">Update</a></p>
   {{end}}
 </div>
-<div class="container show">
-  <div class="row">
-    <h1>{{.post.Title}}</h1>
-    <post>
-      {{raw .post.Body}}
-    </post>
+{{if .post}}
+  <div class="container show">
+      <div class="row">
+        <h1>{{.post.Title}}</h1>
+        <post>
+          {{raw .post.Body}}
+        </post>
+      </div>
+      <hr/>
+      {{template "Post/ad.html" .}}
   </div>
-  <hr/>
-  <post>
-    <div id="advert">
-      <!-- BuySellAds Zone Code -->
-      <div id="bsap_1265393" class="bsarocks bsap_4b9cb3c6b16d90d4b5e3464516fcfb50"></div>
-      <!-- End BuySellAds Zone Code -->
+{{end}}
+{{if .posts}}
+  <div class="container error">
+    <div class="row">
+      <h2>Sorry, that doesn't exist, were you looking for any of these?</h2>
+      {{range $index, $post := .posts}}
+        <h3><a href="/post/{{.Id.Hex}}">{{$post.Title}}</a></h3>
+      {{end}}
     </div>
     <hr />
-  </post>
-</div>
-
+  </div>
+{{end}}
 {{template "footer.html" .}}

@@ -62,7 +62,8 @@ func (c Post) Show(id bson.ObjectId) revel.Result {
 
     return c.Render(post, authenticated)
   }
-  return c.NotFound("Sorry, that post doesn't exist.")
+  posts := models.GetPostsByDate(c.MongoSession, 10, 1)
+  return c.Render(posts)
 }
 
 func (c Post) Update(post *models.Post) revel.Result {
