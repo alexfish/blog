@@ -20,6 +20,13 @@ p {
   line-height: 1.8em;
 }
 
+.container-fluid
+{
+  margin:0 auto 0 auto;
+  max-width: 940px;
+  padding:0 40px;
+}
+
 .avatar
 {
   padding: 10px 20px 0 0px;
@@ -45,7 +52,7 @@ p {
 .hero-unit
 {
   background: #FFF;
-  padding: 20px;
+  padding: 20px 0px;
   margin:20px 0 0 0;
 }
 
@@ -112,12 +119,18 @@ post img
 .text-center.img
 {
   margin: 40px 0;
+  text-align: center;
+}
+
+.text-center.img img
+{
+  max-width:60%;
 }
 
 #advert
 {
   padding:20px 0 0 0;
-  width:500px;
+  width:50%;
   margin:0 auto;
 }
 
@@ -142,4 +155,18 @@ post img
 #post_Body
 {
   width:60%;
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+  .hero-unit {
+    text-align: center;
+    width:100%;
+  }
+  .pull-left.avatar {
+    width:100%;
+  }
+  .hero-unit .pull-left {
+    float:none;
+  }
 }

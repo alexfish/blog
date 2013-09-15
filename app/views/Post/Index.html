@@ -7,8 +7,8 @@
     <p><a class="btn btn-primary" href="/post/new">New Post</a></p>
   {{end}}
 </div>
-<div class="container index">
-  <div class="row">
+<div class="container-fluid index">
+  <div class="row-fluid">
     {{range $index, $post := .posts}}
       <post>
         {{template "Post/post.html" $post}}

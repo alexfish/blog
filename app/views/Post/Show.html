@@ -8,8 +8,8 @@
   {{end}}
 </div>
 {{if .post}}
-  <div class="container show">
-      <div class="row">
+  <div class="container-fluid show">
+      <div class="row-fluid">
         <h1>{{.post.Title}}</h1>
         <post>
           {{raw .post.Body}}
@@ -20,8 +20,8 @@
   </div>
 {{end}}
 {{if .posts}}
-  <div class="container error">
-    <div class="row">
+  <div class="container-fluid error">
+    <div class="row-fluid">
       <h2>Sorry, that doesn't exist, were you looking for any of these?</h2>
       {{range $index, $post := .posts}}
         <h3><a href="/post/{{.Id.Hex}}">{{$post.Title}}</a></h3>
