@@ -21,3 +21,4 @@
 -
 -*.exe
 app/tmp
+.DS_Store
