@@ -1,9 +1,17 @@
 body {
   font-family: 'Open Sans', sans-serif;
+  margin:0;
+  padding:0;
+}
+
+html {
+  margin: 0;
+  padding: 0;
 }
 
 h1 a {
   color:#000;
+  text-decoration: none;
 }
 
 h2 {
@@ -24,13 +32,15 @@ p {
 {
   margin:0 auto 0 auto;
   max-width: 940px;
-  padding:0 40px;
+  padding:0px 20px;
 }
 
 .avatar
 {
   padding: 10px 20px 0 0px;
 }
+
+.pull-left
 
 .hero-unit.light .hero-text
 {
@@ -61,7 +71,7 @@ p {
   margin:40px 0 0px 0;
 }
 
-.error .row
+.error .row-fluid
 {
   margin: 60px 0;
   text-align: center;
@@ -162,9 +172,13 @@ post img
   .hero-unit {
     text-align: center;
     width:100%;
+    padding-left: 0;
+    padding-right: 0;
   }
   .pull-left.avatar {
     width:100%;
+    padding-left: 0;
+    padding-right: 0;
   }
   .hero-unit .pull-left {
     float:none;
