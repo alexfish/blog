@@ -30,7 +30,7 @@ func (c Post) Index() revel.Result {
     }
 
     for i := range posts {
-      posts[i].Body = c.MarkdownHTML(posts[i].Body)
+      posts[i].Preview = c.MarkdownHTML(posts[i].Preview)
     }
     return c.Render(posts, authenticated, nextPage, prevPage)
   }
