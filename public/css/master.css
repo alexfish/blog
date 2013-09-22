@@ -28,6 +28,10 @@ p {
   line-height: 1.8em;
 }
 
+p.more {
+  margin-bottom: -10px;
+}
+
 .container-fluid
 {
   margin:0 auto 0 auto;
@@ -165,6 +169,12 @@ post img
 #post_Body
 {
   width:60%;
+}
+
+#post_Preview
+{
+  width:60%;
+  height:100px;
 }
 
 /* Landscape phone to portrait tablet */

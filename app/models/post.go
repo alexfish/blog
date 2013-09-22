@@ -12,6 +12,7 @@ type Post struct {
   Id        bson.ObjectId `bson:"_id,omitempty"`
   Title     string        `bson:"Title"`
   Body      string        `bson:"Body"`
+  Preview   string        `bson:"Preview"`
   Date      time.Time     `bson:"Date"`
 }
 

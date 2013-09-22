@@ -77,6 +77,7 @@ func (c Post) Update(post *models.Post) revel.Result {
     }
     model.Title = post.Title
     model.Body = post.Body
+    model.Preview = post.Preview
     model.Save(c.MongoSession)
   }
   return c.Redirect(App.Index)

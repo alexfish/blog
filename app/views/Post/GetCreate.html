@@ -1,7 +1,9 @@
 {{set . "title" "New Post"}}
 {{template "header.html" .}}
 {{template "hero.html" .}}
-<div class="container">
-  {{template "Post/form.html" .}}
+<div class="container-fluid">
+  <div class="row-fluid">
+    {{template "Post/form.html" .}}
+  </div>
 </div>
 {{template "footer.html" .}}
