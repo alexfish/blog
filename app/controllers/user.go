@@ -2,7 +2,7 @@ package controllers
 
 import (
   "code.google.com/p/go.crypto/bcrypt"
-  "github.com/alexefish/blog/app/models"
+  "github.com/alexfish/blog/app/models"
   "github.com/robfig/revel"
 )
 

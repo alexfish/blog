@@ -1,7 +1,7 @@
 package controllers
 
 import (
-  "github.com/alexefish/revmgo"
+  "github.com/alexfish/revmgo"
   "github.com/robfig/revel"
   "time"
 )
