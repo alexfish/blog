@@ -2,7 +2,7 @@ package app
 
 import  (
 	"github.com/robfig/revel"
-	"github.com/alexefish/revmgo"
+	"github.com/alexfish/revmgo"
 )
 
 func init() {

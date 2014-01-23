@@ -17,11 +17,11 @@ Revel powered blogging
 
 With go and git installed run the following command to download, compile and install the package.
 
-    go get github.com/alexefish/blog
+    go get github.com/alexfish/blog
 
 To run the application execute:
 
-    revel run github.com/alexefish/blog
+    revel run github.com/alexfish/blog
 
 ### License
 
