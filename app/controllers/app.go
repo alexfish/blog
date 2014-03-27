@@ -1,7 +1,7 @@
 package controllers
 
 import (
-  "github.com/robfig/revel"
+  "github.com/revel/revel"
   "github.com/alexfish/revmgo"
   "github.com/knieriem/markdown"
   "strings"

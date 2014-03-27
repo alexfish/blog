@@ -2,7 +2,7 @@ package controllers
 
 import (
   "github.com/alexfish/blog/app/models"
-  "github.com/robfig/revel"
+  "github.com/revel/revel"
   "labix.org/v2/mgo/bson"
   "time"
   "strconv"
