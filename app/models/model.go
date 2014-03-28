@@ -1,7 +1,7 @@
 package models
 
 import (
-  "github.com/alexefish/blog/app"
+  "github.com/alexfish/blog/app"
   "github.com/revel/revel"
   "labix.org/v2/mgo"
   "reflect"
